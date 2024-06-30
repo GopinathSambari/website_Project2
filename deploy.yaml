@@ -1,0 +1,21 @@
+apiversion: apps/v1
+kind: Deployment
+metadata:
+  name: Project-deployment
+  labels:
+    apps: website
+spec:
+  replicas: 2
+  selectors:
+    matchlabels:
+      app: website
+  template:
+   metadata:
+     labels:
+       app: website
+   spec:
+     containers:
+     - name: website
+       image: gopinathsambari1896/websiteimage
+       ports:
+       -containerPort: 80
